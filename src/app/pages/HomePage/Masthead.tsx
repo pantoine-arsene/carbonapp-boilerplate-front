@@ -1,37 +1,24 @@
+import { SectionWrapper } from 'app/components/SectionWrapper';
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { Logos } from './Logos';
-import { Title } from './components/Title';
-import { Lead } from './components/Lead';
-import { A } from 'app/components/A';
+import { StyleConstants } from 'styles/StyleConstants';
 
 export function Masthead() {
   return (
-    <Wrapper>
-      <Logos />
-      <Title>React Boilerplate meets CRA</Title>
-      <Lead>
-        Now you can use the{' '}
-        <A
-          href="https://www.reactboilerplate.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React Boilerplate
-        </A>{' '}
-        as a{' '}
-        <A
-          href="https://github.com/facebook/create-react-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Create React App
-        </A>{' '}
-        template.
-      </Lead>
-    </Wrapper>
+    <SectionWrapper>
+      <Wrapper>
+        <Title>
+          Trouvez le projet de compensation carbone qui <KeyWord>vous</KeyWord>{' '}
+          correspond
+        </Title>
+      </Wrapper>
+    </SectionWrapper>
   );
 }
+
+const KeyWord = styled.span`
+  color: ${StyleConstants.FOREST_GREEN};
+`;
 
 const Wrapper = styled.main`
   height: 60vh;
@@ -40,4 +27,8 @@ const Wrapper = styled.main`
   align-items: center;
   justify-content: center;
   min-height: 320px;
+`;
+
+const Title = styled.h1`
+  font-size: 56px;
 `;

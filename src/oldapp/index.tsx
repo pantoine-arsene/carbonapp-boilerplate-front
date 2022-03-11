@@ -21,15 +21,11 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - Carbonapp"
-        defaultTitle="Carbonapp"
+        titleTemplate="%s - React Boilerplate"
+        defaultTitle="React Boilerplate"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="Carbonapp platform" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap"
-          rel="stylesheet"
-        />
+        <meta name="description" content="A React Boilerplate application" />
       </Helmet>
 
       <Switch>

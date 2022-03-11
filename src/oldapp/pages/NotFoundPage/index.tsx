@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { NavBar } from 'app/components/NavBar';
+import { P } from './P';
+import { Link } from 'oldapp/components/Link';
+import { NavBar } from 'oldapp/components/NavBar';
 import { Helmet } from 'react-helmet-async';
 import { StyleConstants } from 'styles/StyleConstants';
 
@@ -13,7 +15,15 @@ export function NotFoundPage() {
       </Helmet>
       <NavBar />
       <Wrapper>
-        <p>Page introuvable</p>
+        <Title>
+          4
+          <span role="img" aria-label="Crying Face">
+            😢
+          </span>
+          4
+        </Title>
+        <P>Page not found.</P>
+        <Link to={process.env.PUBLIC_URL + '/'}>Return to Home Page</Link>
       </Wrapper>
     </>
   );
@@ -26,4 +36,15 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 320px;
+`;
+
+const Title = styled.div`
+  margin-top: -8vh;
+  font-weight: bold;
+  color: ${p => p.theme.text};
+  font-size: 3.375rem;
+
+  span {
+    font-size: 3.125rem;
+  }
 `;

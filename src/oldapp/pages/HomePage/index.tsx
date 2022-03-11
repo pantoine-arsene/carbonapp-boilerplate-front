@@ -1,21 +1,24 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { NavBar } from '../../components/NavBar';
+import { NavBar } from 'app/components/NavBar';
 import { Masthead } from './Masthead';
+import { Features } from './Features';
 import { PageWrapper } from 'app/components/PageWrapper';
-import { Projects } from './projects';
 
 export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Accueil</title>
-        <meta name="description" content="Accueil plateforme carbonapp" />
+        <title>Home Page</title>
+        <meta
+          name="description"
+          content="A React Boilerplate application homepage"
+        />
       </Helmet>
       <NavBar />
       <PageWrapper>
         <Masthead />
-        <Projects />
+        <Features />
       </PageWrapper>
     </>
   );
