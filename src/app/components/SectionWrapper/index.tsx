@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { media } from 'styles/media';
 import { StyleConstants } from 'styles/StyleConstants';
 
 interface Props {
@@ -23,6 +24,9 @@ const Wrapper = styled.section<{
 `;
 
 const Content = styled.div`
-  width: ${StyleConstants.MAX_WIDTH};
+  width: 95%;
+  ${media.full`
+    width: ${StyleConstants.MAX_WIDTH};
+  `}
   margin: 0 auto;
 `;

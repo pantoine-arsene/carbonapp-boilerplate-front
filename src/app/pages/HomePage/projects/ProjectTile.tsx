@@ -58,7 +58,7 @@ const TileImage = styled.img`
 const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
   height: 400px;
   overflow: hidden;
   background-color: ${StyleConstants.WHITE};

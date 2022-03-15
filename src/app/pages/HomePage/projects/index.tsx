@@ -13,6 +13,7 @@ import {
   //selectLocation,
   selectProjects,
 } from './selectors';
+import { media } from 'styles/media';
 import { useProjectsSlice } from './slice';
 
 export function Projects() {
@@ -69,8 +70,9 @@ const Wrapper = styled.main`
 `;
 
 const TileListWrapper = styled.div`
-  height: 1000px;
   display: grid;
-  grid-gap: 40px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 40px 40px;
+  ${media.min`grid-template-columns: repeat(1, 1fr);`}
+  ${media.mid`grid-template-columns: repeat(2, 1fr);`}
+  ${media.full`grid-template-columns: repeat(3, 1fr);`}
 `;
