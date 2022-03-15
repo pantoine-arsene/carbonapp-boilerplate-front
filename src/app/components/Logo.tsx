@@ -4,11 +4,16 @@ import styled from 'styled-components';
 interface Props {
   size: string;
   color: string;
+  onClick?: () => void;
 }
 
-export function Logo({ size, color }: Props) {
+export function Logo({ size, color, onClick }: Props) {
   return (
-    <StyledLogo size={size}>
+    <StyledLogo
+      size={size}
+      onClick={() => onClick && onClick()}
+      isClickable={onClick !== undefined}
+    >
       Carbon<ColoredPart color={color}>app</ColoredPart>
     </StyledLogo>
   );
@@ -16,8 +21,11 @@ export function Logo({ size, color }: Props) {
 
 const StyledLogo = styled.h1<{
   size: string;
+  isClickable: boolean;
 }>`
   font-size: ${({ size }) => size};
+  ${({ isClickable }) => isClickable && 'cursor: pointer;'}
+  margin: 0;
 `;
 
 const ColoredPart = styled.span<{

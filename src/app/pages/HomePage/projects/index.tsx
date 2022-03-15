@@ -1,40 +1,76 @@
 import { SectionWrapper } from 'app/components/SectionWrapper';
 import * as React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { StyleConstants } from 'styles/StyleConstants';
+import { ProjectSearchBar } from './ProjectSearchBar';
 import { ProjectTile } from './ProjectTile';
-
-const projects = [
-  {
-    title: 'Projet 1',
-    description: 'Foret drôme',
-    images: ['', ''],
-  },
-  {
-    title: 'Projet 2',
-    description: 'Foret loire atlantique',
-    images: ['', ''],
-  },
-];
+import {
+  //selectAmountCarbon,
+  //selectError,
+  //selectLoading,
+  //selectLocation,
+  selectProjects,
+} from './selectors';
+import { useProjectsSlice } from './slice';
 
 export function Projects() {
+  const { actions } = useProjectsSlice();
+
+  //const location = useSelector(selectLocation);
+  //const amountCarbon = useSelector(selectAmountCarbon);
+  const projects = useSelector(selectProjects);
+  //const isLoading = useSelector(selectLoading);
+  //const error = useSelector(selectError);
+
+  const dispatch = useDispatch();
+
+  //  const onLocationChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  //    dispatch(actions.changeLocation(evt.currentTarget.value));
+  //  };
+  //
+  //  const onAmountCarbonChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  //    dispatch(actions.changeAmountCarbon(evt.currentTarget.value));
+  //  };
+
+  const useEffectOnMount = (effect: React.EffectCallback) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(effect, []);
+  };
+
+  useEffectOnMount(() => {
+    dispatch(actions.loadProjects());
+  });
+
   return (
     <SectionWrapper backgroundColor={StyleConstants.LIGHTERGREY}>
       <Wrapper>
-        {projects.map((elem, idx) => (
-          <ProjectTile
-            title={elem.title}
-            description={elem.description}
-            images={elem.images}
-            key={idx}
-          />
-        ))}
+        <ProjectSearchBar />
+        <TileListWrapper>
+          {projects.map((elem, idx) => (
+            <ProjectTile
+              title={elem.title}
+              description={elem.description}
+              images={elem.images}
+              key={idx}
+              location={elem.location}
+              amountCarbon={elem.amountCarbon}
+            />
+          ))}
+        </TileListWrapper>
       </Wrapper>
     </SectionWrapper>
   );
 }
 
 const Wrapper = styled.main`
-  height: 1000px;
   padding: 40px 0;
+`;
+
+const TileListWrapper = styled.div`
+  height: 1000px;
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: repeat(5, 1fr);
 `;

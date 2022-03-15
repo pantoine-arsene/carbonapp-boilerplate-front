@@ -27,11 +27,10 @@ export function App() {
       >
         <meta name="description" content="Carbonapp platform" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap"
           rel="stylesheet"
-        />
+        ></link>
       </Helmet>
-
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
         <Route component={NotFoundPage} />
