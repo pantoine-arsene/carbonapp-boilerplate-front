@@ -22,7 +22,7 @@ export function ProjectTile({
         <TileDescription>{truncateString(50, description)}</TileDescription>
         <TileDetail>
           <TileLocation>{location}</TileLocation>
-          <TileCarbon>{amountCarbon} TCO2</TileCarbon>
+          <TileCarbon>{amountCarbon} TeqCO2</TileCarbon>
         </TileDetail>
       </TextWrapper>
       <TileImage src={images[0]} />
@@ -34,7 +34,10 @@ const TextWrapper = styled.div`
   padding: 20px;
 `;
 
-const TileTitle = styled.h1``;
+const TileTitle = styled.h1`
+  overflow: hidden;
+  white-space: nowrap;
+`;
 
 const TileDetail = styled.div`
   display: flex;
@@ -47,6 +50,8 @@ const TileCarbon = styled.span``;
 
 const TileDescription = styled.p`
   font-weight: 900;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const TileImage = styled.img`
