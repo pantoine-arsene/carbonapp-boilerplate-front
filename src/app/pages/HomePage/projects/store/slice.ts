@@ -2,7 +2,8 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { projectsSaga } from './saga';
-import { ErrorProject, Project, ProjectsState } from './types';
+import { ErrorProject, ProjectsState } from '../types';
+import { Project } from 'types/components/Project';
 
 export const initialState: ProjectsState = {
   projects: [],

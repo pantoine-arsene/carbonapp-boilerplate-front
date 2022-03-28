@@ -1,31 +1,25 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { StyleConstants } from 'styles/StyleConstants';
-import { Project as ProjectTileProps } from './types';
+import { Project } from 'types/components/Project';
 
-function truncateString(length: number, str: string): string {
-  if (str.length > length) return str.substring(0, length - 3) + '...';
-  return str;
-}
+//function truncateString(length: number, str: string): string {
+//  if (str.length > length) return str.substring(0, length - 3) + '...';
+//  return str;
+//}
 
-export function ProjectTile({
-  title,
-  description,
-  images,
-  location,
-  amountCarbon,
-}: ProjectTileProps) {
+export function ProjectTile(p: Project) {
   return (
     <Wrapper>
       <TextWrapper>
-        <TileTitle>{truncateString(30, title)}</TileTitle>
-        <TileDescription>{truncateString(50, description)}</TileDescription>
+        <TileTitle>{p.name}</TileTitle>
+        <TileDescription>{p.shortDescription}</TileDescription>
         <TileDetail>
-          <TileLocation>{location}</TileLocation>
-          <TileCarbon>{amountCarbon} TeqCO2</TileCarbon>
+          <TileLocation>{p.location}</TileLocation>
+          <TileCarbon>{p.tonnage} TeqCO2</TileCarbon>
         </TileDetail>
       </TextWrapper>
-      <TileImage src={images[0]} />
+      <TileImage src={p.banner} />
     </Wrapper>
   );
 }

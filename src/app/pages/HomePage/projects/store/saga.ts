@@ -1,8 +1,9 @@
-import { call, put, select, takeLatest, delay } from 'redux-saga/effects';
+import { call, put, takeLatest, delay } from 'redux-saga/effects';
 import { request } from 'utils/request';
-import { selectLocation, selectAmountCarbon } from './selectors';
+//import { selectLocation, selectAmountCarbon } from './selectors';
 import { projectsActions as actions } from './slice';
-import { ErrorProject, Project } from './types';
+import { ErrorProject } from '../types';
+import { Project } from 'types/components/Project';
 
 /**
  * Get projects from api

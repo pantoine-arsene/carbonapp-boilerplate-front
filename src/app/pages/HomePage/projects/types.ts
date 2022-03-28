@@ -1,10 +1,4 @@
-export interface Project {
-  title: string;
-  description: string;
-  images: Array<string>;
-  location: string;
-  amountCarbon: number;
-}
+import { Project } from 'types/components/Project';
 
 export interface ProjectsState {
   projects: Array<Project>;

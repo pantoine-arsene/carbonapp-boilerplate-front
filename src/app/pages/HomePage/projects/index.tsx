@@ -9,9 +9,9 @@ import {
   //selectError,
   //selectLoading,
   selectProjects,
-} from './selectors';
+} from './store/selectors';
 import { media } from 'styles/media';
-import { useProjectsSlice } from './slice';
+import { useProjectsSlice } from './store/slice';
 
 export function Projects() {
   const { actions } = useProjectsSlice();
@@ -34,18 +34,17 @@ export function Projects() {
   return (
     <SectionWrapper backgroundColor={StyleConstants.LIGHTERGREY}>
       <Wrapper>
-        <TileListWrapper>
-          {projects.map((elem, idx) => (
-            <ProjectTile
-              title={elem.title}
-              description={elem.description}
-              images={elem.images}
-              key={idx}
-              location={elem.location}
-              amountCarbon={elem.amountCarbon}
-            />
+        {projects?.length > 0 && (
+          <TileListWrapper>
+            {projects.map((elem, idx) => (
+              <ProjectTile {...elem} key={idx} />
+            ))}
+          </TileListWrapper>
+        )}
+        {!projects ||
+          (projects?.length === 0 && (
+            <NoProject>Pas de projet disponible</NoProject>
           ))}
-        </TileListWrapper>
       </Wrapper>
     </SectionWrapper>
   );
@@ -62,3 +61,5 @@ const TileListWrapper = styled.div`
   ${media.mid`grid-template-columns: repeat(2, 1fr);`}
   ${media.full`grid-template-columns: repeat(3, 1fr);`}
 `;
+
+const NoProject = styled.span``;
