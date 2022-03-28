@@ -1,4 +1,5 @@
 import { Method, Company, Dossier, Cobenefit, Media } from '..';
+import { Common } from '../Common';
 
 export enum ProjectStatus {
   TO_FUND = 'to_fund',
@@ -6,7 +7,7 @@ export enum ProjectStatus {
   FUNDED = 'funded',
 }
 
-export interface Project {
+export interface Project extends Common {
   name: string;
   shortDescription: string;
   longDescription: string;

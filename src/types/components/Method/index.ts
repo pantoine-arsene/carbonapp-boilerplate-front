@@ -1,6 +1,7 @@
 import { Sector } from '..';
+import { Common } from '../Common';
 
-export interface Method {
+export interface Method extends Common {
   name: string;
   image: string;
   standard: string;

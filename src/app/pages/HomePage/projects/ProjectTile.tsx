@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { StyleConstants } from 'styles/StyleConstants';
 import { Project } from 'types/components/Project';
+import { useNavigate } from "react-router-dom";
 
 //function truncateString(length: number, str: string): string {
 //  if (str.length > length) return str.substring(0, length - 3) + '...';
@@ -9,8 +10,15 @@ import { Project } from 'types/components/Project';
 //}
 
 export function ProjectTile(p: Project) {
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/project/${p._id}`;
+    navigate(path);
+  }
+  
   return (
-    <Wrapper>
+    <Wrapper onClick={() => routeChange()}>
       <TextWrapper>
         <TileTitle>{p.name}</TileTitle>
         <TileDescription>{p.shortDescription}</TileDescription>

@@ -3,17 +3,19 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { media } from 'styles/media';
 import { StyleConstants } from 'styles/StyleConstants';
+import { L } from './Link';
 import { Logo } from './Logo';
 
 export function NavBar() {
   return (
     <Container>
       <Wrapper>
-        <Logo
-          color={StyleConstants.FOREST_GREEN}
-          size={'24px'}
-          onClick={() => console.log('click logo')}
-        />
+        <L to="/">
+          <Logo
+            color={StyleConstants.FOREST_GREEN}
+            size={'24px'}
+          />
+        </L>
         <Links>
           <A>Proposer un projet</A>
           <A>Profil</A>

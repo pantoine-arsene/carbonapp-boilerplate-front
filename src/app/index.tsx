@@ -8,13 +8,14 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { ProjectPage } from './pages/ProjectPage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -31,10 +32,11 @@ export function App() {
           rel="stylesheet"
         ></link>
       </Helmet>
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Routes>
+        <Route path={process.env.PUBLIC_URL + '/'} element={<HomePage/>} />
+        <Route path={process.env.PUBLIC_URL + '/project/:id'} element={<ProjectPage/>} />
+        <Route path={process.env.PUBLIC_URL + '/*'} element={<NotFoundPage/>} />
+      </Routes>
       <GlobalStyle />
     </BrowserRouter>
   );

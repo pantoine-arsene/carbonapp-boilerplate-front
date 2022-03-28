@@ -1,3 +1,5 @@
+import { Common } from "../Common";
+
 export enum DossierType {
   INDIVIDUAL = 'individual',
   COLLECTIVE = 'collective',
@@ -9,7 +11,7 @@ export enum DossierStatus {
   LABELLED = 'labelled',
 }
 
-export interface Dossier {
+export interface Dossier extends Common {
   name: string;
   type: DossierType;
   depositDate: Date;
