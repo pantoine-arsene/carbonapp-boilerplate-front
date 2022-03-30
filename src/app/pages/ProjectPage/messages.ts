@@ -8,6 +8,5 @@ import { translations } from 'locales/translations';
 import { _t } from 'utils/messages';
 
 export const messages = {
-  title: () => _t(translations.landingPage.title),
-  valueProposition: () => _t(translations.landingPage.valueProposition),
+  title: () => _t(translations.projectPage.title),
 };

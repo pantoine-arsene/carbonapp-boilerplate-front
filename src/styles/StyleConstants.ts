@@ -7,5 +7,5 @@ export enum StyleConstants {
   GREY = '#c9c9c9',
   LIGHTGREY = '#f0f0f0',
   LIGHTERGREY = '#f7f7f7',
-  FOREST_GREEN = '#228b22',
+  MAIN_COLOR = 'rgb(248, 104, 0)', //#228b22
 }

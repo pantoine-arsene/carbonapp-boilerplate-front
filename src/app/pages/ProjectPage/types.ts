@@ -1,11 +1,9 @@
-import { Project } from 'types/components';
+import { Project } from 'types/components/Project';
 
-export interface ProjectsState {
-  projects: Array<Project>;
+export interface ProjectState {
+  project: Project | undefined;
   error: ErrorProject | null;
   loading: boolean;
-  location: string;
-  amountCarbon: number;
 }
 
 export enum ErrorProject {

@@ -26,7 +26,6 @@ export function* getProjects() {
   try {
     // Call our request helper (see 'utils/request')
     const projects: Project[] = yield call(request, requestURL);
-    console.log(projects);
     if (projects?.length > 0) {
       yield put(actions.projectsLoaded(projects));
     } else {
@@ -36,7 +35,7 @@ export function* getProjects() {
     if (err.response?.status === 404) {
       yield put(actions.projectError(ErrorProject.ERROR_NOT_FOUND));
     } else {
-      yield put(actions.projectError(ErrorProject.ERROR_UNKNOW));
+      yield put(actions.projectError(ErrorProject.ERROR_UNKNOWN));
     }
   }
 }

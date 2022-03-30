@@ -1,0 +1,14 @@
+{
+  "header": {
+    "funders": "Financeurs",
+    "projectHolders": "Porteurs de projet",
+    "showcase": "Vitrine"
+  },
+  "landingPage": {
+    "title": "Accueil",
+    "valueProposition": "Trouvez le projet de compensation carbone qui <1>vous</1> correspond"
+  },
+  "projectPage": {
+    "title": "Projet"
+  }
+}

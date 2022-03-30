@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components/macro';
+import { StyleConstants } from 'styles/StyleConstants';
 
 interface Props extends SvgProps {}
 
@@ -45,6 +46,6 @@ const Svg = styled.svg<SvgProps>`
 
 const Circle = styled.circle`
   animation: ${dash} ${speed}s ease-in-out infinite;
-  stroke: ${p => p.theme.primary};
+  stroke: ${StyleConstants.MAIN_COLOR};
   stroke-linecap: round;
 `;

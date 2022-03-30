@@ -1,4 +1,4 @@
-import { Common } from "../Common";
+import { Common } from '../Common';
 
 export interface Cobenefit extends Common {
   image: string;

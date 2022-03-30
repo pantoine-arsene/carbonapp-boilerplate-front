@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
-import { NavBar } from 'app/components/NavBar';
+import { Header } from 'app/components/Header';
 import { Helmet } from 'react-helmet-async';
 import { StyleConstants } from 'styles/StyleConstants';
 
@@ -11,7 +11,7 @@ export function NotFoundPage() {
         <title>404 Page Not Found</title>
         <meta name="description" content="Page not found" />
       </Helmet>
-      <NavBar />
+      <Header />
       <Wrapper>
         <p>Page introuvable</p>
       </Wrapper>

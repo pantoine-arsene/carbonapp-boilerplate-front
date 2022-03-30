@@ -1,4 +1,4 @@
-import { Common } from "../Common";
+import { Common } from '../Common';
 
 export enum MediaType {
   PHOTO = 'photo',
@@ -6,6 +6,6 @@ export enum MediaType {
 }
 
 export interface Media extends Common {
-  type: string;
+  type: MediaType;
   url: string;
 }

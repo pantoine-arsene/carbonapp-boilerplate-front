@@ -1,24 +1,25 @@
 import { SectionWrapper } from 'app/components/SectionWrapper';
 import * as React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 import { StyleConstants } from 'styles/StyleConstants';
 
 export function Masthead() {
+  const { t } = useTranslation();
+
   return (
     <SectionWrapper>
       <Wrapper>
         <Title>
-          Trouvez le projet de compensation carbone qui <KeyWord>vous</KeyWord>{' '}
-          correspond
+          <Trans i18nKey="landingPage.valueProposition" t={t}>
+            <></>
+            <Important></Important>
+          </Trans>
         </Title>
       </Wrapper>
     </SectionWrapper>
   );
 }
-
-const KeyWord = styled.span`
-  color: ${StyleConstants.FOREST_GREEN};
-`;
 
 const Wrapper = styled.main`
   height: 60vh;
@@ -31,4 +32,8 @@ const Wrapper = styled.main`
 
 const Title = styled.h1`
   font-size: 56px;
+`;
+
+const Important = styled.span`
+  color: ${StyleConstants.MAIN_COLOR};
 `;

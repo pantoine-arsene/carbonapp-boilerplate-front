@@ -5,7 +5,6 @@
 import * as React from 'react';
 import { lazyLoad } from 'utils/loadable';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
-import styled from 'styled-components/macro';
 import { LoadingWrapper } from 'app/components/LoadingWrapper';
 
 export const HomePage = lazyLoad(

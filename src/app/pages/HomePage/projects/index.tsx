@@ -6,18 +6,20 @@ import styled from 'styled-components';
 import { StyleConstants } from 'styles/StyleConstants';
 import { ProjectTile } from './ProjectTile';
 import {
+  selectLoading,
   //selectError,
   //selectLoading,
   selectProjects,
 } from './store/selectors';
 import { media } from 'styles/media';
 import { useProjectsSlice } from './store/slice';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 
 export function Projects() {
   const { actions } = useProjectsSlice();
 
   const projects = useSelector(selectProjects);
-  //const isLoading = useSelector(selectLoading);
+  const isLoading = useSelector(selectLoading);
   //const error = useSelector(selectError);
 
   const dispatch = useDispatch();
@@ -41,10 +43,16 @@ export function Projects() {
             ))}
           </TileListWrapper>
         )}
-        {!projects ||
-          (projects?.length === 0 && (
-            <NoProject>Pas de projet disponible</NoProject>
-          ))}
+        {!isLoading &&
+          (!projects ||
+            (projects?.length === 0 && (
+              <NoProject>Pas de projet disponible</NoProject>
+            )))}
+        {isLoading && (
+          <LoadingWrapper>
+            <LoadingIndicator />
+          </LoadingWrapper>
+        )}
       </Wrapper>
     </SectionWrapper>
   );
@@ -52,6 +60,15 @@ export function Projects() {
 
 const Wrapper = styled.main`
   padding: 40px 0;
+  height: 480px;
+`;
+
+const LoadingWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TileListWrapper = styled.div`
