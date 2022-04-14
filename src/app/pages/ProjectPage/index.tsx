@@ -12,6 +12,7 @@ import { LoadingWrapper } from 'app/components/LoadingWrapper';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import { useTranslation } from 'react-i18next';
 import { messages } from './messages';
+import { AdditionalData } from './sections/AdditionalData';
 
 export function ProjectPage() {
   const { actions } = useProjectSlice();
@@ -41,7 +42,12 @@ export function ProjectPage() {
       </Helmet>
       <Header />
       <PageWrapper>
-        {!isLoading && project && <MainData project={project}></MainData>}
+        {!isLoading && project && (
+          <>
+            <MainData project={project}></MainData>
+            <AdditionalData></AdditionalData>
+          </>
+        )}
         {isLoading && (
           <LoadingWrapper>
             <LoadingIndicator />
